@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA20B5861B05690800FB4001 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B5851B05690800FB4001 /* main.m */; };
+		CA20B5891B05690800FB4001 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B5881B05690800FB4001 /* AppDelegate.m */; };
+		CA20B58C1B05690800FB4001 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B58B1B05690800FB4001 /* ViewController.m */; };
+		CA20B58F1B05690800FB4001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA20B58D1B05690800FB4001 /* Main.storyboard */; };
+		CA20B5911B05690800FB4001 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA20B5901B05690800FB4001 /* Images.xcassets */; };
+		CA20B5941B05690800FB4001 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20B5921B05690800FB4001 /* LaunchScreen.xib */; };
+		CA20B5A01B05690800FB4001 /* DotBallControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B59F1B05690800FB4001 /* DotBallControlTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA20B59A1B05690800FB4001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA20B5781B05690800FB4001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA20B57F1B05690800FB4001;
+			remoteInfo = DotBallControl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA20B5801B05690800FB4001 /* DotBallControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotBallControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA20B5841B05690800FB4001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA20B5851B05690800FB4001 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA20B5871B05690800FB4001 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CA20B5881B05690800FB4001 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CA20B58A1B05690800FB4001 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CA20B58B1B05690800FB4001 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CA20B58E1B05690800FB4001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA20B5901B05690800FB4001 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CA20B5931B05690800FB4001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CA20B5991B05690800FB4001 /* DotBallControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DotBallControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA20B59E1B05690800FB4001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA20B59F1B05690800FB4001 /* DotBallControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DotBallControlTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA20B57D1B05690800FB4001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA20B5961B05690800FB4001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA20B5771B05690800FB4001 = {
+			isa = PBXGroup;
+			children = (
+				CA20B5821B05690800FB4001 /* DotBallControl */,
+				CA20B59C1B05690800FB4001 /* DotBallControlTests */,
+				CA20B5811B05690800FB4001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA20B5811B05690800FB4001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA20B5801B05690800FB4001 /* DotBallControl.app */,
+				CA20B5991B05690800FB4001 /* DotBallControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA20B5821B05690800FB4001 /* DotBallControl */ = {
+			isa = PBXGroup;
+			children = (
+				CA20B5871B05690800FB4001 /* AppDelegate.h */,
+				CA20B5881B05690800FB4001 /* AppDelegate.m */,
+				CA20B58A1B05690800FB4001 /* ViewController.h */,
+				CA20B58B1B05690800FB4001 /* ViewController.m */,
+				CA20B58D1B05690800FB4001 /* Main.storyboard */,
+				CA20B5901B05690800FB4001 /* Images.xcassets */,
+				CA20B5921B05690800FB4001 /* LaunchScreen.xib */,
+				CA20B5831B05690800FB4001 /* Supporting Files */,
+			);
+			path = DotBallControl;
+			sourceTree = "<group>";
+		};
+		CA20B5831B05690800FB4001 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA20B5841B05690800FB4001 /* Info.plist */,
+				CA20B5851B05690800FB4001 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA20B59C1B05690800FB4001 /* DotBallControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA20B59F1B05690800FB4001 /* DotBallControlTests.m */,
+				CA20B59D1B05690800FB4001 /* Supporting Files */,
+			);
+			path = DotBallControlTests;
+			sourceTree = "<group>";
+		};
+		CA20B59D1B05690800FB4001 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA20B59E1B05690800FB4001 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA20B57F1B05690800FB4001 /* DotBallControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA20B5A31B05690800FB4001 /* Build configuration list for PBXNativeTarget "DotBallControl" */;
+			buildPhases = (
+				CA20B57C1B05690800FB4001 /* Sources */,
+				CA20B57D1B05690800FB4001 /* Frameworks */,
+				CA20B57E1B05690800FB4001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DotBallControl;
+			productName = DotBallControl;
+			productReference = CA20B5801B05690800FB4001 /* DotBallControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA20B5981B05690800FB4001 /* DotBallControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA20B5A61B05690800FB4001 /* Build configuration list for PBXNativeTarget "DotBallControlTests" */;
+			buildPhases = (
+				CA20B5951B05690800FB4001 /* Sources */,
+				CA20B5961B05690800FB4001 /* Frameworks */,
+				CA20B5971B05690800FB4001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA20B59B1B05690800FB4001 /* PBXTargetDependency */,
+			);
+			name = DotBallControlTests;
+			productName = DotBallControlTests;
+			productReference = CA20B5991B05690800FB4001 /* DotBallControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA20B5781B05690800FB4001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Jialiang;
+				TargetAttributes = {
+					CA20B57F1B05690800FB4001 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					CA20B5981B05690800FB4001 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = CA20B57F1B05690800FB4001;
+					};
+				};
+			};
+			buildConfigurationList = CA20B57B1B05690800FB4001 /* Build configuration list for PBXProject "DotBallControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA20B5771B05690800FB4001;
+			productRefGroup = CA20B5811B05690800FB4001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA20B57F1B05690800FB4001 /* DotBallControl */,
+				CA20B5981B05690800FB4001 /* DotBallControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA20B57E1B05690800FB4001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA20B58F1B05690800FB4001 /* Main.storyboard in Resources */,
+				CA20B5941B05690800FB4001 /* LaunchScreen.xib in Resources */,
+				CA20B5911B05690800FB4001 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA20B5971B05690800FB4001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA20B57C1B05690800FB4001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA20B58C1B05690800FB4001 /* ViewController.m in Sources */,
+				CA20B5891B05690800FB4001 /* AppDelegate.m in Sources */,
+				CA20B5861B05690800FB4001 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA20B5951B05690800FB4001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA20B5A01B05690800FB4001 /* DotBallControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA20B59B1B05690800FB4001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA20B57F1B05690800FB4001 /* DotBallControl */;
+			targetProxy = CA20B59A1B05690800FB4001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA20B58D1B05690800FB4001 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA20B58E1B05690800FB4001 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA20B5921B05690800FB4001 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA20B5931B05690800FB4001 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA20B5A11B05690800FB4001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA20B5A21B05690800FB4001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA20B5A41B05690800FB4001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DotBallControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA20B5A51B05690800FB4001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DotBallControl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA20B5A71B05690800FB4001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DotBallControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DotBallControl.app/DotBallControl";
+			};
+			name = Debug;
+		};
+		CA20B5A81B05690800FB4001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DotBallControlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DotBallControl.app/DotBallControl";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA20B57B1B05690800FB4001 /* Build configuration list for PBXProject "DotBallControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA20B5A11B05690800FB4001 /* Debug */,
+				CA20B5A21B05690800FB4001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA20B5A31B05690800FB4001 /* Build configuration list for PBXNativeTarget "DotBallControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA20B5A41B05690800FB4001 /* Debug */,
+				CA20B5A51B05690800FB4001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CA20B5A61B05690800FB4001 /* Build configuration list for PBXNativeTarget "DotBallControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA20B5A71B05690800FB4001 /* Debug */,
+				CA20B5A81B05690800FB4001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA20B5781B05690800FB4001 /* Project object */;
+}
