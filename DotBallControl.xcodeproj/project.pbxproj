@@ -14,6 +14,9 @@
 		CA20B5911B05690800FB4001 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA20B5901B05690800FB4001 /* Images.xcassets */; };
 		CA20B5941B05690800FB4001 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20B5921B05690800FB4001 /* LaunchScreen.xib */; };
 		CA20B5A01B05690800FB4001 /* DotBallControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B59F1B05690800FB4001 /* DotBallControlTests.m */; };
+		CA20B5B11B05697400FB4001 /* DotBall.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B5B01B05697400FB4001 /* DotBall.m */; };
+		CA20B5B41B05698200FB4001 /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B5B31B05698200FB4001 /* Dot.m */; };
+		CA20B5B71B05699600FB4001 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20B5B61B05699600FB4001 /* Calculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		CA20B5991B05690800FB4001 /* DotBallControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DotBallControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA20B59E1B05690800FB4001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA20B59F1B05690800FB4001 /* DotBallControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DotBallControlTests.m; sourceTree = "<group>"; };
+		CA20B5AF1B05697400FB4001 /* DotBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotBall.h; sourceTree = "<group>"; };
+		CA20B5B01B05697400FB4001 /* DotBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotBall.m; sourceTree = "<group>"; };
+		CA20B5B21B05698200FB4001 /* Dot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dot.h; sourceTree = "<group>"; };
+		CA20B5B31B05698200FB4001 /* Dot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
+		CA20B5B51B05699600FB4001 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
+		CA20B5B61B05699600FB4001 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,12 @@
 				CA20B5881B05690800FB4001 /* AppDelegate.m */,
 				CA20B58A1B05690800FB4001 /* ViewController.h */,
 				CA20B58B1B05690800FB4001 /* ViewController.m */,
+				CA20B5B51B05699600FB4001 /* Calculator.h */,
+				CA20B5B61B05699600FB4001 /* Calculator.m */,
+				CA20B5AF1B05697400FB4001 /* DotBall.h */,
+				CA20B5B01B05697400FB4001 /* DotBall.m */,
+				CA20B5B21B05698200FB4001 /* Dot.h */,
+				CA20B5B31B05698200FB4001 /* Dot.m */,
 				CA20B58D1B05690800FB4001 /* Main.storyboard */,
 				CA20B5901B05690800FB4001 /* Images.xcassets */,
 				CA20B5921B05690800FB4001 /* LaunchScreen.xib */,
@@ -221,6 +236,9 @@
 			files = (
 				CA20B58C1B05690800FB4001 /* ViewController.m in Sources */,
 				CA20B5891B05690800FB4001 /* AppDelegate.m in Sources */,
+				CA20B5B11B05697400FB4001 /* DotBall.m in Sources */,
+				CA20B5B71B05699600FB4001 /* Calculator.m in Sources */,
+				CA20B5B41B05698200FB4001 /* Dot.m in Sources */,
 				CA20B5861B05690800FB4001 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
