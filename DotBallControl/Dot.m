@@ -10,4 +10,23 @@
 
 @implementation Dot
 
+- (Dot*)initWithFrame:(CGRect)f
+{
+    self.frame = f;
+//    self.backgroundColor = [UIColor redColor].CGColor;
+    return self;
+}
+
+- (void)drawInContext:(CGContextRef)ctx
+{
+    [self setContentsScale:[UIScreen mainScreen].scale];
+    
+    UIGraphicsPushContext(ctx);
+    
+    CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);
+    CGContextFillEllipseInRect(ctx, CGRectMake(0, 0, self.frame.size.width, self.frame.size.height));
+    
+    UIGraphicsPopContext();
+}
+
 @end

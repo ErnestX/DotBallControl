@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Jialiang. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface Dot : CALayer
 
-@property float ballRadius;
+- (Dot*)initWithFrame:(CGRect)f;
 
 @end
