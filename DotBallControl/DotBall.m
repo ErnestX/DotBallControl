@@ -25,7 +25,7 @@
         background.frame = self.layer.frame;
         [self.layer addSublayer:background];
         
-        dotRadius = 20;
+        dotRadius = 10;
 
         // place the dots
         
@@ -42,12 +42,12 @@
         }
         
         // Step3: all dots rotate transform evenly along x, y axis
-        float stepAngle = 2; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
+        float stepAngle = 0.5; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
         float theta = 0;
         float phi = 0;
         for (NSInteger i = 0; i < background.sublayers.count; i++) {
             Dot* d = [background.sublayers objectAtIndex:i];
-//            NSLog(@"phi = %f | theta = %f", phi, theta);
+            NSLog(@"phi = %f | theta = %f", phi, theta);
             d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
             d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
             
@@ -64,7 +64,7 @@
 - (NSInteger) getNumOfDotsBasedOnDotRadius
 {
     //stub
-    return 20;
+    return 40;
 }
 
 - (float)getScreenHeight

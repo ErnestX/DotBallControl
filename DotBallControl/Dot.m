@@ -19,6 +19,7 @@
     width = f.size.width;
     height = f.size.height;
     
+    self.doubleSided = NO;
 //    self.backgroundColor = [UIColor redColor].CGColor;
     return self;
 }
