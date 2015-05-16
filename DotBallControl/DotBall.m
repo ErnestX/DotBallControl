@@ -113,9 +113,14 @@
 
 - (void) rotateBallByAngle:(float)angle AxisX:(float)x AxisY:(float)y
 {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    
     for (Dot* d in background.sublayers) {
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(angle, x, y, 0));
     }
+    
+    [CATransaction commit];
 }
 
 - (NSInteger) getNumOfDotsBasedOnDotRadius
