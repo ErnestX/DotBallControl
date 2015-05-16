@@ -9,7 +9,7 @@
 #import "DotBall.h"
 #import "Dot.h"
 
-#define BALL_RADIUS 200.0
+#define BALL_RADIUS 150.0
 
 @implementation DotBall {
     CALayer* background;
@@ -25,9 +25,13 @@
         dotRadius = 10;
         
         // add background layer
-        background = [CALayer layer];
+        background = [CALayer layer]; // TODO: turn this into catransformlayer for smooth animations
         background.frame = self.layer.frame;
         [self.layer addSublayer:background];
+        
+        // add outline layer
+        CAShapeLayer* outline = [CAShapeLayer layer];
+//        outline.path =
         
         [self initGestureRecognizers];
         [self initBall];
@@ -92,7 +96,7 @@
             float newDistance = sqrtf(powf(newTranslation.x, 2) + powf(newTranslation.y, 2));
             float angle = [self calcRotationAngleFromDistance:newDistance];
             
-            [self rotateBallByAngle:angle AxisX:newTranslation.y AxisY:newTranslation.x]; // swapped x and y to make it perpendicular to the translation???
+            [self rotateBallByAngle:angle AxisX:(newTranslation.y * -1) AxisY:newTranslation.x]; // swapped x and y and negate to make it perpendicular to the translation
             
             prevTranslation = translation;
             
@@ -126,7 +130,7 @@
 - (NSInteger) getNumOfDotsBasedOnDotRadius
 {
     //stub
-    return 40;
+    return 70;
 }
 
 - (float)getScreenHeight
