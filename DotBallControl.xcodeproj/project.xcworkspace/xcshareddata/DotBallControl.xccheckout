@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>2B96ABC2-C846-4192-8097-7F64E83D6D2C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>DotBallControl</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>238A4B866611EF369445C0B0424C69942FE46C97</key>
 		<string>https://github.com/ErnestX/DotBallControl.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DotBallControl.xcodeproj/project.xcworkspace</string>
+	<string>DotBallControl.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>238A4B866611EF369445C0B0424C69942FE46C97</key>
