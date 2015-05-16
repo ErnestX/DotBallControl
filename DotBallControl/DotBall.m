@@ -38,9 +38,11 @@
 - (void)initGestureRecognizers
 {
     // add gesture recognizers
-    UIPanGestureRecognizer* oneFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingPan:)];
+    UIPanGestureRecognizer* oneFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingerPan:)];
     oneFingerPanRecognizer.maximumNumberOfTouches = 1;
     oneFingerPanRecognizer.minimumNumberOfTouches = 1;
+    [self addGestureRecognizer:oneFingerPanRecognizer];
+    
     // TODO: pinch and two finger pan
 }
 
@@ -73,6 +75,45 @@
         theta += stepAngle;
         phi = stepAngle * (floorf(theta / (M_PI*2)) + 1);
     }
+}
+
+- (void) handleOneFingerPan: (UIPanGestureRecognizer*) uigr
+{
+    static CGPoint prevTranslation;
+    
+    switch (uigr.state) {
+        case UIGestureRecognizerStateBegan: {
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            CGPoint translation = [uigr translationInView:self];
+            CGPoint newTranslation = CGPointMake(translation.x - prevTranslation.x, translation.y - prevTranslation.y);
+            
+            float newDistance = sqrtf(powf(newTranslation.x, 2) + powf(newTranslation.y, 2));
+            float angle = [self calcRotationAngleFromDistance:newDistance];
+            
+            [self rotateBallByAngle:angle AxisX:newTranslation.x AxisY:newTranslation.y];
+            
+            prevTranslation = translation;
+            
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (float) calcRotationAngleFromDistance: (float) d
+{
+    return 0;
+}
+
+- (void) rotateBallByAngle:(float)angle AxisX:(float)x AxisY:(float)y
+{
+    // stub
 }
 
 - (NSInteger) getNumOfDotsBasedOnDotRadius
