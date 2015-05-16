@@ -21,44 +21,58 @@
     self = [super initWithCoder:aDecoder];
     
     if (self) {
+        // init iVars
+        dotRadius = 10;
+        
+        // add background layer
         background = [CALayer layer];
         background.frame = self.layer.frame;
         [self.layer addSublayer:background];
         
-        dotRadius = 10;
+        [self initGestureRecognizers];
+        [self initBall];
+    }
+    return self;
+}
 
-        // place the dots
-        
-        // Step1: put all dots at the origin.
-        for (NSInteger i = 0; i < [self getNumOfDotsBasedOnDotRadius]; i++) {
-            Dot* d = [[Dot layer]initWithFrame:CGRectMake([self getScreenWidth]/2 - dotRadius, [self getScreenHeight]/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
-            [background addSublayer:d];
-            [d setNeedsDisplay];
-        }
-        
-        // Step2: all dots transform to the top
-        for (Dot* d in background.sublayers) {
-            d.transform = CATransform3DMakeTranslation(0, 0, BALL_RADIUS); // not sure up is plus or minus
-        }
-        
-        // Step3: all dots rotate transform evenly along x, y axis
-        float stepAngle = 0.5; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
-        float theta = 0;
-        float phi = 0;
-        for (NSInteger i = 0; i < background.sublayers.count; i++) {
-            Dot* d = [background.sublayers objectAtIndex:i];
-            NSLog(@"phi = %f | theta = %f", phi, theta);
-            d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
-            d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
-            
-            
-            theta += stepAngle;
-            phi = stepAngle * (floorf(theta / (M_PI*2)) + 1);
-        }
-        
+- (void)initGestureRecognizers
+{
+    // add gesture recognizers
+    UIPanGestureRecognizer* oneFingerPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOneFingPan:)];
+    oneFingerPanRecognizer.maximumNumberOfTouches = 1;
+    oneFingerPanRecognizer.minimumNumberOfTouches = 1;
+    // TODO: pinch and two finger pan
+}
+
+- (void)initBall
+{
+    // place the dots
+    // Step1: put all dots at the origin.
+    for (NSInteger i = 0; i < [self getNumOfDotsBasedOnDotRadius]; i++) {
+        Dot* d = [[Dot layer]initWithFrame:CGRectMake([self getScreenWidth]/2 - dotRadius, [self getScreenHeight]/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
+        [background addSublayer:d];
+        [d setNeedsDisplay];
     }
     
-    return self;
+    // Step2: all dots transform to the top
+    for (Dot* d in background.sublayers) {
+        d.transform = CATransform3DMakeTranslation(0, 0, BALL_RADIUS); // not sure up is plus or minus
+    }
+    
+    // Step3: all dots rotate transform evenly along x, y axis
+    float stepAngle = 0.5; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
+    float theta = 0;
+    float phi = 0;
+    for (NSInteger i = 0; i < background.sublayers.count; i++) {
+        Dot* d = [background.sublayers objectAtIndex:i];
+        //            NSLog(@"phi = %f | theta = %f", phi, theta);
+        d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
+        d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
+        
+        
+        theta += stepAngle;
+        phi = stepAngle * (floorf(theta / (M_PI*2)) + 1);
+    }
 }
 
 - (NSInteger) getNumOfDotsBasedOnDotRadius
