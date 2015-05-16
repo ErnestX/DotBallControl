@@ -92,7 +92,7 @@
             float newDistance = sqrtf(powf(newTranslation.x, 2) + powf(newTranslation.y, 2));
             float angle = [self calcRotationAngleFromDistance:newDistance];
             
-            [self rotateBallByAngle:angle AxisX:newTranslation.x AxisY:newTranslation.y];
+            [self rotateBallByAngle:angle AxisX:newTranslation.y AxisY:newTranslation.x]; // swapped x and y to make it perpendicular to the translation???
             
             prevTranslation = translation;
             
@@ -108,12 +108,14 @@
 
 - (float) calcRotationAngleFromDistance: (float) d
 {
-    return 0;
+    return d/100;
 }
 
 - (void) rotateBallByAngle:(float)angle AxisX:(float)x AxisY:(float)y
 {
-    // stub
+    for (Dot* d in background.sublayers) {
+        d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(angle, x, y, 0));
+    }
 }
 
 - (NSInteger) getNumOfDotsBasedOnDotRadius
