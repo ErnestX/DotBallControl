@@ -27,9 +27,6 @@
         // add background layer
         ballBackLayer = [CATransformLayer layer];
         ballBackLayer.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
-        ballBackLayer.backgroundColor = [UIColor redColor].CGColor;
-//        ballBackLayer.anchorPoint = CGPointMake(0.5, 0.5);
-//        ballBackLayer.anchorPointZ = 0;
         [self.layer addSublayer:ballBackLayer];
         
         // add outline layer
@@ -65,7 +62,6 @@
     // place the dots
     // Step1: put all dots at the origin of the backlayer.
     for (NSInteger i = 0; i < [self getNumOfDotsBasedOnDotRadius]; i++) {
-//        Dot* d = [[Dot layer]initWithFrame:CGRectMake([self getScreenWidth]/2 - dotRadius, [self getScreenHeight]/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
         Dot* d = [[Dot layer]initWithFrame:CGRectMake(ballBackLayer.frame.size.width/2 - dotRadius, ballBackLayer.frame.size.height/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
         [ballBackLayer addSublayer:d];
         [d setNeedsDisplay];
@@ -114,6 +110,7 @@
             break;
         }
         case UIGestureRecognizerStateEnded: {
+            prevTranslation = CGPointZero; // don't forget to reset!
             break;
         }
         default:
@@ -130,11 +127,7 @@
 {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-    
-    //for (Dot* d in ballBackLayer.sublayers) {
     ballBackLayer.transform = CATransform3DConcat(ballBackLayer.transform, CATransform3DMakeRotation(angle, x, y, 0));
-    //}
-    
     [CATransaction commit];
 }
 
