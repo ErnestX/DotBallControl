@@ -25,13 +25,6 @@
         // init iVars
         dotRadius = 15;
         
-        // add back transform layer
-        ballBackLayer = [CATransformLayer layer];
-        ballBackLayer.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
-        [self.layer addSublayer:ballBackLayer];
-        
-        // TODO: add alpha mask
-        
         [self initGestureRecognizers];
         [self initBall];
         
@@ -43,6 +36,8 @@
         outline.strokeColor = [UIColor blackColor].CGColor;
         outline.lineWidth = 5;
         [self.layer addSublayer:outline];
+        
+        // TODO: add alpha mask
     }
     return self;
 }
@@ -60,6 +55,11 @@
 
 - (void)initBall
 {
+    // add back transform layer
+    ballBackLayer = [CATransformLayer layer];
+    ballBackLayer.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
+    [self.layer addSublayer:ballBackLayer];
+    
     // place the dots
     // Step1: put all dots at the origin of the backlayer.
     for (NSInteger i = 0; i < [self getNumOfDotsBasedOnDotRadius]; i++) {
@@ -89,6 +89,12 @@
     }
 }
 
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // interrupt ongoing rotation
+    [self pop_removeAnimationForKey:@"momentum_rotation"];
+}
+
 - (void) handleOneFingerPan: (UIPanGestureRecognizer*) uigr
 {
     static CGPoint prevTranslation;
@@ -115,23 +121,22 @@
             
             // decay animation
             __block CGPoint v = [uigr velocityInView:self];
-            // translate v to distance per frame
-            v = CGPointMake(v.x / 50, v.y / 50);
+
+            v = CGPointMake(v.x / 50, v.y / 50); // translate distance per time unit to distance per frame
             POPCustomAnimation *customAnimation = [POPCustomAnimation animationWithBlock:^BOOL(id obj, POPCustomAnimation *animation) {
                 float angle = [self calcRotationAngleFromDistance:sqrtf(powf(v.x, 2) + powf(v.y, 2))];
                 [self rotateBallAnimatedByAngle:angle AxisX:(v.y * -1) AxisY:v.x];
                 
-                // exponential decay
-                v = CGPointMake(v.x * 0.97, v.y * 0.97);
+                v = CGPointMake(v.x * 0.97, v.y * 0.97); // exponential decay
                 
-                if (fabsf(angle) < 0.0001) {
+                if (fabsf(angle) < 0.001) { // min rotate speed
                     return NO;
                 } else {
                     return YES;
                 }
             }];
                                                    
-            [self pop_addAnimation:customAnimation forKey:@"momentum_rotating"];
+            [self pop_addAnimation:customAnimation forKey:@"momentum_rotation"];
             break;
         }
         default:
@@ -141,7 +146,6 @@
 
 - (float) calcRotationAngleFromDistance: (float) d
 {
-    // stub
     return d / (2 * BALL_RADIUS) * M_PI; // rotate 180 if pan through the diameter
 }
 
