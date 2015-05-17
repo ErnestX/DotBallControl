@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Jialiang. All rights reserved.
 //
 
+#import "POP.h"
 #import "DotBall.h"
 #import "Dot.h"
 
@@ -24,10 +25,15 @@
         // init iVars
         dotRadius = 15;
         
-        // add background layer
+        // add back transform layer
         ballBackLayer = [CATransformLayer layer];
         ballBackLayer.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
         [self.layer addSublayer:ballBackLayer];
+        
+        // TODO: add alpha mask
+        
+        [self initGestureRecognizers];
+        [self initBall];
         
         // add outline layer
         CAShapeLayer* outline = [CAShapeLayer layer];
@@ -37,11 +43,6 @@
         outline.strokeColor = [UIColor blackColor].CGColor;
         outline.lineWidth = 5;
         [self.layer addSublayer:outline];
-        
-        // TODO: add alpha mask
-        
-        [self initGestureRecognizers];
-        [self initBall];
     }
     return self;
 }
@@ -103,7 +104,7 @@
             float newDistance = sqrtf(powf(newTranslation.x, 2) + powf(newTranslation.y, 2));
             float angle = [self calcRotationAngleFromDistance:newDistance];
             
-            [self rotateBallByAngle:angle AxisX:(newTranslation.y * -1) AxisY:newTranslation.x]; // swapped x and y and negate to make it perpendicular to the translation
+            [self rotateBallNotAnimatedByAngle:angle AxisX:(newTranslation.y * -1) AxisY:newTranslation.x]; // swapped x and y and negate one of them to make it perpendicular to the translation
             
             prevTranslation = translation;
             
@@ -111,6 +112,26 @@
         }
         case UIGestureRecognizerStateEnded: {
             prevTranslation = CGPointZero; // don't forget to reset!
+            
+            // decay animation
+            __block CGPoint v = [uigr velocityInView:self];
+            // translate v to distance per frame
+            v = CGPointMake(v.x / 50, v.y / 50);
+            POPCustomAnimation *customAnimation = [POPCustomAnimation animationWithBlock:^BOOL(id obj, POPCustomAnimation *animation) {
+                float angle = [self calcRotationAngleFromDistance:sqrtf(powf(v.x, 2) + powf(v.y, 2))];
+                [self rotateBallAnimatedByAngle:angle AxisX:(v.y * -1) AxisY:v.x];
+                
+                // exponential decay
+                v = CGPointMake(v.x * 0.97, v.y * 0.97);
+                
+                if (fabsf(angle) < 0.0001) {
+                    return NO;
+                } else {
+                    return YES;
+                }
+            }];
+                                                   
+            [self pop_addAnimation:customAnimation forKey:@"momentum_rotating"];
             break;
         }
         default:
@@ -120,14 +141,20 @@
 
 - (float) calcRotationAngleFromDistance: (float) d
 {
-    return d/100;
+    // stub
+    return d / (2 * BALL_RADIUS) * M_PI; // rotate 180 if pan through the diameter
 }
 
-- (void) rotateBallByAngle:(float)angle AxisX:(float)x AxisY:(float)y
+- (void) rotateBallAnimatedByAngle:(float)angle AxisX:(float)x AxisY:(float)y
+{
+    ballBackLayer.transform = CATransform3DConcat(ballBackLayer.transform, CATransform3DMakeRotation(angle, x, y, 0));
+}
+
+- (void) rotateBallNotAnimatedByAngle:(float)angle AxisX:(float)x AxisY:(float)y
 {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-    ballBackLayer.transform = CATransform3DConcat(ballBackLayer.transform, CATransform3DMakeRotation(angle, x, y, 0));
+    [self rotateBallAnimatedByAngle:angle AxisX:x AxisY:y];
     [CATransaction commit];
 }
 
@@ -146,14 +173,5 @@
 {
     return [UIScreen mainScreen].bounds.size.width;
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
