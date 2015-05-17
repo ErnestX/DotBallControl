@@ -12,7 +12,7 @@
 #define BALL_RADIUS 150.0
 
 @implementation DotBall {
-    CALayer* background;
+    CATransformLayer* ballBackLayer;
     float dotRadius;
 }
 
@@ -25,9 +25,12 @@
         dotRadius = 15;
         
         // add background layer
-        background = [CALayer layer]; // TODO: turn this into catransformlayer for smooth animations
-        background.frame = self.layer.frame;
-        [self.layer addSublayer:background];
+        ballBackLayer = [CATransformLayer layer];
+        ballBackLayer.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
+        ballBackLayer.backgroundColor = [UIColor redColor].CGColor;
+//        ballBackLayer.anchorPoint = CGPointMake(0.5, 0.5);
+//        ballBackLayer.anchorPointZ = 0;
+        [self.layer addSublayer:ballBackLayer];
         
         // add outline layer
         CAShapeLayer* outline = [CAShapeLayer layer];
@@ -60,15 +63,16 @@
 - (void)initBall
 {
     // place the dots
-    // Step1: put all dots at the origin.
+    // Step1: put all dots at the origin of the backlayer.
     for (NSInteger i = 0; i < [self getNumOfDotsBasedOnDotRadius]; i++) {
-        Dot* d = [[Dot layer]initWithFrame:CGRectMake([self getScreenWidth]/2 - dotRadius, [self getScreenHeight]/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
-        [background addSublayer:d];
+//        Dot* d = [[Dot layer]initWithFrame:CGRectMake([self getScreenWidth]/2 - dotRadius, [self getScreenHeight]/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
+        Dot* d = [[Dot layer]initWithFrame:CGRectMake(ballBackLayer.frame.size.width/2 - dotRadius, ballBackLayer.frame.size.height/2 - dotRadius, dotRadius * 2, dotRadius * 2)];
+        [ballBackLayer addSublayer:d];
         [d setNeedsDisplay];
     }
     
     // Step2: all dots transform to the top
-    for (Dot* d in background.sublayers) {
+    for (Dot* d in ballBackLayer.sublayers) {
         d.transform = CATransform3DMakeTranslation(0, 0, BALL_RADIUS); // not sure up is plus or minus
     }
     
@@ -76,8 +80,8 @@
     float stepAngle = 0.5; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
     float theta = 0;
     float phi = 0;
-    for (NSInteger i = 0; i < background.sublayers.count; i++) {
-        Dot* d = [background.sublayers objectAtIndex:i];
+    for (NSInteger i = 0; i < ballBackLayer.sublayers.count; i++) {
+        Dot* d = [ballBackLayer.sublayers objectAtIndex:i];
         //            NSLog(@"phi = %f | theta = %f", phi, theta);
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
@@ -127,9 +131,9 @@
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     
-    for (Dot* d in background.sublayers) {
-        d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(angle, x, y, 0));
-    }
+    //for (Dot* d in ballBackLayer.sublayers) {
+    ballBackLayer.transform = CATransform3DConcat(ballBackLayer.transform, CATransform3DMakeRotation(angle, x, y, 0));
+    //}
     
     [CATransaction commit];
 }
