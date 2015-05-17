@@ -22,7 +22,7 @@
     
     if (self) {
         // init iVars
-        dotRadius = 10;
+        dotRadius = 15;
         
         // add background layer
         background = [CALayer layer]; // TODO: turn this into catransformlayer for smooth animations
@@ -31,7 +31,14 @@
         
         // add outline layer
         CAShapeLayer* outline = [CAShapeLayer layer];
-//        outline.path =
+        outline.frame = CGRectMake([self getScreenWidth]/2 - BALL_RADIUS, [self getScreenHeight]/2 - BALL_RADIUS, BALL_RADIUS, BALL_RADIUS);
+        outline.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 2.0*BALL_RADIUS, 2.0*BALL_RADIUS) cornerRadius:BALL_RADIUS].CGPath;
+        outline.fillColor = [UIColor clearColor].CGColor;
+        outline.strokeColor = [UIColor blackColor].CGColor;
+        outline.lineWidth = 5;
+        [self.layer addSublayer:outline];
+        
+        // TODO: add alpha mask
         
         [self initGestureRecognizers];
         [self initBall];
