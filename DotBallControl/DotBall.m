@@ -83,8 +83,10 @@
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
         
-        NSInteger numOfDotForThisLevel = roundf((M_PI*2)/(stepAngle + fabs(phi - M_PI/2.0)/2));
-        theta += M_PI * 2 / numOfDotForThisLevel;
+        //NSInteger numOfDotForThisLevel = roundf((M_PI*2)/(fabs(phi - M_PI/2.0) * 4));
+        //NSInteger numOfDotForThisLevel = roundf((M_PI * 2) / (cos(phi * 2) + 1.3));
+        NSInteger numOfDotForThisLevel = roundf((M_PI*2)/(fabs(phi - M_PI/2.0)/2));
+        theta += stepAngle + M_PI * 2 / numOfDotForThisLevel;
         phi = stepAngle * (floorf(theta / (M_PI*2)) + 1);
     }
 }
@@ -165,7 +167,7 @@
 - (NSInteger) getNumOfDotsBasedOnDotRadius
 {
     //stub
-    return 45;
+    return 41;
 }
 
 - (float)getScreenHeight
