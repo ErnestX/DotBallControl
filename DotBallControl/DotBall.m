@@ -74,17 +74,17 @@
     }
     
     // Step3: all dots rotate transform evenly along x, y axis
-    float stepAngle = 0.5; // the step angle must be the same for theta and phi to make sure the dots are tiled evenly
+    float stepAngle = M_PI / 6;
     float theta = 0;
     float phi = 0;
     for (NSInteger i = 0; i < ballBackLayer.sublayers.count; i++) {
         Dot* d = [ballBackLayer.sublayers objectAtIndex:i];
-        //            NSLog(@"phi = %f | theta = %f", phi, theta);
+        NSLog(@"phi = %f | theta = %f", phi, theta);
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(phi, 0, 1, 0));
         d.transform = CATransform3DConcat(d.transform, CATransform3DMakeRotation(theta, 0, 0, 1));
         
-        
-        theta += stepAngle;
+        NSInteger numOfDotForThisLevel = roundf((M_PI*2)/(stepAngle + fabs(phi - M_PI/2.0)/2));
+        theta += M_PI * 2 / numOfDotForThisLevel;
         phi = stepAngle * (floorf(theta / (M_PI*2)) + 1);
     }
 }
@@ -122,7 +122,7 @@
             // decay animation
             __block CGPoint v = [uigr velocityInView:self];
 
-            v = CGPointMake(v.x / 50, v.y / 50); // translate distance per time unit to distance per frame
+            v = CGPointMake(v.x / 30, v.y / 30); // translate distance per time unit to distance per frame
             POPCustomAnimation *customAnimation = [POPCustomAnimation animationWithBlock:^BOOL(id obj, POPCustomAnimation *animation) {
                 float angle = [self calcRotationAngleFromDistance:sqrtf(powf(v.x, 2) + powf(v.y, 2))];
                 [self rotateBallAnimatedByAngle:angle AxisX:(v.y * -1) AxisY:v.x];
@@ -165,7 +165,7 @@
 - (NSInteger) getNumOfDotsBasedOnDotRadius
 {
     //stub
-    return 70;
+    return 45;
 }
 
 - (float)getScreenHeight
